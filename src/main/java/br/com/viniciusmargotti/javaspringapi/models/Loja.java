@@ -31,6 +31,21 @@ public class Loja implements Serializable {
     @Column(name = "I_DATABASES")
     private Integer databases;
 
+    @Column(name = "TELEFONE1")
+    private String telefone1;
+
+    @Column(name = "TELEFONE2")
+    private String telefone2;
+
+    @Column(name = "WHATSAPP")
+    private String whatsapp;
+
+    @Column(name = "EMAIL")
+    private String email;
+
+    @Column(name = "INSTAGRAM")
+    private String instagram;
+
     public Loja() {
     }
 }
