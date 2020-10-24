@@ -46,6 +46,10 @@ public class Loja implements Serializable {
     @Column(name = "INSTAGRAM")
     private String instagram;
 
+    @Lob
+    @Column(name = "LOGO")
+    private byte[] logo;
+
     public Loja() {
     }
 }

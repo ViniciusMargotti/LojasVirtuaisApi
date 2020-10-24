@@ -27,6 +27,22 @@ public class Pessoa implements Serializable {
     @Column(name = "SOBRENOME")
     private String sobrenome;
 
+    @NotNull(message = "O campo numero é obrigatório")
+    @Column(name = "ENDERECO")
+    private String endereco;
+
+    @NotNull(message = "O campo numero é obrigatório")
+    @Column(name = "NUMERO")
+    private String numero;
+
+    @NotNull(message = "O campo complemento é obrigatório")
+    @Column(name = "COMPLEMENTO")
+    private String complemento;
+
+    @NotNull(message = "O campo referencia é obrigatório")
+    @Column(name = "REFERENCIA")
+    private String referencia;
+
     @NotNull(message = "O campo de identificação do cliente é obrigatório")
     @Column(name = "I_DATABASES")
     private Integer databases;
