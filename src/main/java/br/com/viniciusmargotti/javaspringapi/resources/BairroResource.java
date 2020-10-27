@@ -1,6 +1,7 @@
 package br.com.viniciusmargotti.javaspringapi.resources;
 
 import br.com.viniciusmargotti.javaspringapi.models.Bairro;
+import br.com.viniciusmargotti.javaspringapi.models.Cidade;
 import br.com.viniciusmargotti.javaspringapi.models.Loja;
 import br.com.viniciusmargotti.javaspringapi.repository.BairroRepository;
 import br.com.viniciusmargotti.javaspringapi.repository.LojaRepository;
@@ -22,9 +23,8 @@ public class BairroResource {
     private BairroRepository bairroRepository;
 
     @ApiOperation(value="Busca todos os bairros")
-    @RequestMapping(method = RequestMethod.GET)
-    public List<Bairro> getAll() {
-        return bairroRepository.findAll();
+    @RequestMapping(method = RequestMethod.GET,value = "/{idCidade}")
+    public List<Bairro> findByEstadoId(@PathVariable Long idCidade) {
+        return bairroRepository.findByCidadeId(idCidade);
     }
-
 }
