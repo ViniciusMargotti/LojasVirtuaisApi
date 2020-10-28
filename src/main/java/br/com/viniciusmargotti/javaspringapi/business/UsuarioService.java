@@ -2,6 +2,8 @@ package br.com.viniciusmargotti.javaspringapi.business;
 
 import br.com.viniciusmargotti.javaspringapi.dtos.PessoaDTO;
 import br.com.viniciusmargotti.javaspringapi.dtos.UsuarioDTO;
+import br.com.viniciusmargotti.javaspringapi.infra.ProcessException;
+import br.com.viniciusmargotti.javaspringapi.infra.RecordNotFoundException;
 import br.com.viniciusmargotti.javaspringapi.models.Bairro;
 import br.com.viniciusmargotti.javaspringapi.models.Pessoa;
 import br.com.viniciusmargotti.javaspringapi.models.Usuario;
@@ -13,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsuarioBusiness {
+public class UsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -57,8 +59,8 @@ public class UsuarioBusiness {
     private void validaUsuarioDuplicado(UsuarioDTO usuario) {
         Usuario usuarioExistente = usuarioRepository.findByEmail(usuario.getEmail());
 
-        if (usuarioExistente != null && usuarioExistente.getId().equals(usuario.getId())) {
-            new RuntimeException("Já existe um usuário cadastrado para o email " + usuario.getEmail());
+        if (usuarioExistente != null) {
+            throw new ProcessException("Já existe um usuário cadastrado para o email " + usuario.getEmail());
         }
     }
 }
