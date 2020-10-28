@@ -29,4 +29,35 @@ public class Estado implements Serializable {
 
     public Estado() {
     }
+
+    public static class Builder{
+
+        private Long id;
+        private String nome;
+        private String sigla;
+
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder nome(String nome) {
+            this.nome = nome;
+            return this;
+        }
+
+        public Builder sigla(String sigla) {
+            this.sigla = sigla;
+            return this;
+        }
+
+        public Estado build() {
+            Estado estado = new Estado();
+            estado.id = this.id;
+            estado.nome = this.nome;
+            estado.sigla = this.sigla;
+            return estado;
+        }
+
+    }
 }

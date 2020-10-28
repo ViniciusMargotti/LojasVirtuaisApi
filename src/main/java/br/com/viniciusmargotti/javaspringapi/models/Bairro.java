@@ -30,4 +30,37 @@ public class Bairro implements Serializable {
 
     public Bairro() {
     }
+
+    public static class Builder{
+
+        private Long id;
+        private String nome;
+        private Cidade cidade;
+
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder nome(String nome) {
+            this.nome = nome;
+            return this;
+        }
+
+        public Builder cidade(Cidade cidade) {
+            this.cidade = cidade;
+            return this;
+        }
+
+        public Bairro build() {
+            Bairro bairro = new Bairro();
+           bairro.id = this.id;
+           bairro.nome = this.nome;
+           bairro.cidade = this.cidade;
+
+           return bairro;
+        }
+    }
+
+
 }

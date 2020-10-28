@@ -18,7 +18,7 @@ public class CidadeResource {
     @Autowired
     private CidadeRepository cidadeRepository;
 
-    @ApiOperation(value="Busca todas as cidades")
+    @ApiOperation(value="Busca cidade por estado")
     @RequestMapping(method = RequestMethod.GET,value = "/{idEstado}")
     public List<Cidade> findByEstadoId(@PathVariable Long idEstado) {
         return cidadeRepository.findByEstadoId(idEstado);

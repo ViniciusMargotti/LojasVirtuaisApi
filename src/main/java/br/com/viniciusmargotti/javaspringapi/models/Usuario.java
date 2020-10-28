@@ -3,6 +3,9 @@ package br.com.viniciusmargotti.javaspringapi.models;
 import io.swagger.models.auth.In;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -33,10 +36,45 @@ public class Usuario implements Serializable {
     @JoinColumn(name = "ID_PESSOAS")
     private Pessoa pessoa;
 
-    @NotNull(message = "O campo de identificação do cliente é obrigatório")
-    @Column(name = "I_DATABASES")
-    private Integer databases;
-
     public Usuario() {
     }
+
+    public static class Builder extends Usuario{
+
+        private Long id;
+        private String email;
+        private String senha;
+        private Pessoa pessoa;
+
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public Builder senha(String senha) {
+            this.senha = senha;
+            return this;
+        }
+
+        public Builder pessoa(Pessoa pessoa) {
+            this.pessoa = pessoa;
+            return this;
+        }
+
+        public Usuario build() {
+            Usuario usuario = new Usuario();
+            usuario.id = this.id;
+            usuario.email = this.email;
+            usuario.senha = this.senha;
+            usuario.pessoa = this.pessoa;
+
+            return usuario;
+        }
+    }
+
 }
