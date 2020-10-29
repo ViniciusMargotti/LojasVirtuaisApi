@@ -1,9 +1,8 @@
-package br.com.viniciusmargotti.javaspringapi.business;
+package br.com.viniciusmargotti.javaspringapi.services;
 
 import br.com.viniciusmargotti.javaspringapi.dtos.PessoaDTO;
 import br.com.viniciusmargotti.javaspringapi.dtos.UsuarioDTO;
-import br.com.viniciusmargotti.javaspringapi.infra.ProcessException;
-import br.com.viniciusmargotti.javaspringapi.infra.RecordNotFoundException;
+import br.com.viniciusmargotti.javaspringapi.exceptions.ProcessException;
 import br.com.viniciusmargotti.javaspringapi.models.Bairro;
 import br.com.viniciusmargotti.javaspringapi.models.Pessoa;
 import br.com.viniciusmargotti.javaspringapi.models.Usuario;

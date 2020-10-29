@@ -1,6 +1,6 @@
 package br.com.viniciusmargotti.javaspringapi.resources;
 
-import br.com.viniciusmargotti.javaspringapi.business.UsuarioService;
+import br.com.viniciusmargotti.javaspringapi.services.UsuarioService;
 import br.com.viniciusmargotti.javaspringapi.dtos.UsuarioDTO;
 import br.com.viniciusmargotti.javaspringapi.models.Usuario;
 import br.com.viniciusmargotti.javaspringapi.repository.UsuarioRepository;
@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.xml.ws.Response;
 import java.util.List;
 
 @RestController

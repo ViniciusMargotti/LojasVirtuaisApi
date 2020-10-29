@@ -1,5 +1,6 @@
 package br.com.viniciusmargotti.javaspringapi.security;
 
+import br.com.viniciusmargotti.javaspringapi.exceptions.ProcessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -35,7 +36,7 @@ public class JwtAuthenticationController {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         } catch (BadCredentialsException e) {
-            throw new Exception("INVALID_CREDENTIALS", e);
+            throw new ProcessException("Atenção! Email ou senha inválidos");
         }
     }
 }

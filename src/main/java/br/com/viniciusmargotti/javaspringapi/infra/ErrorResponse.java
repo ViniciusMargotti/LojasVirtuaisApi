@@ -1,23 +1,41 @@
 package br.com.viniciusmargotti.javaspringapi.infra;
 
-import lombok.Setter;
-
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
- 
-@XmlRootElement(name = "error")
-@Setter
-public class ErrorResponse 
-{
-    public ErrorResponse(String message, List<String> details) {
-        super();
-        this.message = message;
-        this.details = details;
-    }
- 
-    //General error message about nature of error
-    private String message;
- 
-    //Specific errors in API request processing
-    private List<String> details;
+
+public class ErrorResponse {
+
+	private final String message;
+	private final int code;
+	private final String status;
+	private final String objectName;
+	private final List<ObjectError> errors;
+
+	public ErrorResponse(String message, int code, String status, String objectName, List<ObjectError> errors) {
+		this.message = message;
+		this.code = code;
+		this.status = status;
+		this.objectName = objectName;
+		this.errors = errors;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public int getCode() {
+		return code;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public String getObjectName() {
+		return objectName;
+	}
+
+	public List<ObjectError> getErrors() {
+		return errors;
+	}
+
 }
