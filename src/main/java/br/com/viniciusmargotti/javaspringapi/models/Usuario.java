@@ -1,5 +1,7 @@
 package br.com.viniciusmargotti.javaspringapi.models;
 
+import br.com.viniciusmargotti.javaspringapi.dtos.PessoaDTO;
+import br.com.viniciusmargotti.javaspringapi.dtos.UsuarioDTO;
 import io.swagger.models.auth.In;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import java.io.Serializable;
@@ -31,7 +34,7 @@ public class Usuario implements Serializable {
     @Column(name = "SENHA")
     private String senha;
 
-    @NotNull(message = "O usuário deve estar vinculado a uma pessoa")
+    @Valid
     @ManyToOne
     @JoinColumn(name = "ID_PESSOAS")
     private Pessoa pessoa;
@@ -39,7 +42,7 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public static class Builder extends Usuario{
+    public static class Builder{
 
         private Long id;
         private String email;

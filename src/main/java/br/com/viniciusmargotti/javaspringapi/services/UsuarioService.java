@@ -3,7 +3,6 @@ package br.com.viniciusmargotti.javaspringapi.services;
 import br.com.viniciusmargotti.javaspringapi.dtos.PessoaDTO;
 import br.com.viniciusmargotti.javaspringapi.dtos.UsuarioDTO;
 import br.com.viniciusmargotti.javaspringapi.exceptions.ProcessException;
-import br.com.viniciusmargotti.javaspringapi.models.Bairro;
 import br.com.viniciusmargotti.javaspringapi.models.Pessoa;
 import br.com.viniciusmargotti.javaspringapi.models.Usuario;
 import br.com.viniciusmargotti.javaspringapi.repository.BairroRepository;
@@ -26,30 +25,22 @@ public class UsuarioService {
     private PessoaRepository pessoaRepository;
 
     @Autowired
+    private PessoaDTO.Builder prb;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     public Usuario saveUsuario(UsuarioDTO usuarioDTO) {
 
         validaUsuarioDuplicado(usuarioDTO);
 
-        PessoaDTO pessoaDTO = usuarioDTO.getPessoa();
+        Pessoa pessoa = prb.fromRepresentation(usuarioDTO.getPessoa());
 
-        Bairro bairro = pessoaDTO.getBairro()!= null ? bairroRepository.findById(pessoaDTO.getBairro().getId()).get() : null;
-
-        Pessoa pessoa = new Pessoa.Builder().cep(pessoaDTO.getCep())
-                .complemento(pessoaDTO.getComplemento())
-                .bairro(bairro)
-                .endereco(pessoaDTO.getEndereco())
-                .nome(pessoaDTO.getNome())
-                .sobrenome(pessoaDTO.getSobrenome())
-                .numero(pessoaDTO.getNumero())
-                .referencia(pessoaDTO.getReferencia()).build();
-
-        Pessoa pessoaCadastrada = pessoaRepository.save(pessoa);
+        Pessoa entityPessoa = pessoaRepository.save(pessoa);
 
         Usuario usuario = new Usuario.Builder()
                 .email(usuarioDTO.getEmail())
-                .pessoa(pessoaCadastrada)
+                .pessoa(entityPessoa)
                 .senha(passwordEncoder.encode(usuarioDTO.getSenha())).build();
 
         return usuarioRepository.save(usuario);

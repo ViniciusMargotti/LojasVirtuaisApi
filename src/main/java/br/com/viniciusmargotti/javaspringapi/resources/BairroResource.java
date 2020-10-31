@@ -5,6 +5,8 @@ import br.com.viniciusmargotti.javaspringapi.repository.BairroRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,7 +22,7 @@ public class BairroResource {
 
     @ApiOperation(value="Busca bairro por cidade")
     @RequestMapping(method = RequestMethod.GET,value = "/{idCidade}")
-    public List<Bairro> findByEstadoId(@PathVariable Long idCidade) {
-        return bairroRepository.findByCidadeId(idCidade);
+    public ResponseEntity<List<Bairro>> findByEstadoId(@PathVariable Long idCidade) {
+        return new ResponseEntity(bairroRepository.findByCidadeId(idCidade), HttpStatus.OK);
     }
 }

@@ -26,16 +26,19 @@ public class UsuarioResource {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Autowired
+    private UsuarioDTO.Builder urb;
+
     @ApiOperation(value="Salva um novo usuário")
     @PostMapping("save")
-    public ResponseEntity<Usuario> saveUsuario(@RequestBody @Valid UsuarioDTO usuarioDTO) {
-            return new ResponseEntity<>(usuarioService.saveUsuario(usuarioDTO), HttpStatus.OK);
+    public ResponseEntity<UsuarioDTO> saveUsuario(@RequestBody @Valid UsuarioDTO usuarioDTO) {
+            return new ResponseEntity<>(urb.toRepresentation(usuarioService.saveUsuario(usuarioDTO)), HttpStatus.OK);
     }
 
     @ApiOperation(value="Busca todos os usuários")
     @GetMapping("getAll")
-    public List<Usuario> getAll() {
-        return usuarioRepository.findAll();
+    public ResponseEntity<List<UsuarioDTO>> getAll() {
+        return new ResponseEntity<>(urb.toListRepresentation(usuarioRepository.findAll()), HttpStatus.OK);
     }
 
 

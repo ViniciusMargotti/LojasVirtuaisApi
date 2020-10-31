@@ -1,9 +1,12 @@
 package br.com.viniciusmargotti.javaspringapi.models;
 
+import br.com.viniciusmargotti.javaspringapi.dtos.PessoaDTO;
+import br.com.viniciusmargotti.javaspringapi.dtos.UsuarioDTO;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -47,7 +50,7 @@ public class Pessoa implements Serializable {
     @Column(name = "REFERENCIA")
     private String referencia;
 
-    @NotNull(message = "O usuário deve estar vinculado a um bairro")
+    @Valid
     @ManyToOne
     @JoinColumn(name = "ID_BAIRROS")
     private Bairro bairro;
