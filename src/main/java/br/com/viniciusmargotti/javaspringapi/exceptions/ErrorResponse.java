@@ -1,4 +1,4 @@
-package br.com.viniciusmargotti.javaspringapi.infra;
+package br.com.viniciusmargotti.javaspringapi.exceptions;
 
 import java.util.List;
 

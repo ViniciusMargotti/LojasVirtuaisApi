@@ -1,6 +1,5 @@
 package br.com.viniciusmargotti.javaspringapi.exceptions;
 
-import br.com.viniciusmargotti.javaspringapi.infra.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,7 +1,5 @@
 package br.com.viniciusmargotti.javaspringapi.exceptions;
 
-import br.com.viniciusmargotti.javaspringapi.infra.ObjectError;
-
 import java.util.List;
 
 public class PersonValidationErrorException extends RuntimeException{
