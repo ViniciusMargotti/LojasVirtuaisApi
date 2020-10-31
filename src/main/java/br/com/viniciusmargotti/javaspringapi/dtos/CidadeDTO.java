@@ -1,7 +1,5 @@
 package br.com.viniciusmargotti.javaspringapi.dtos;
 
-import br.com.viniciusmargotti.javaspringapi.models.Cidade;
-import br.com.viniciusmargotti.javaspringapi.models.Estado;
 import lombok.Getter;
 import lombok.Setter;
 

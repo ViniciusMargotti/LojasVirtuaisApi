@@ -1,6 +1,5 @@
 package br.com.viniciusmargotti.javaspringapi.dtos;
 
-import br.com.viniciusmargotti.javaspringapi.models.Pessoa;
 import br.com.viniciusmargotti.javaspringapi.models.Usuario;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +11,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Getter
