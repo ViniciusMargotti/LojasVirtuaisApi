@@ -42,11 +42,9 @@ public class Pessoa implements Serializable {
     @Column(name = "NUMERO")
     private String numero;
 
-    @NotNull(message = "O campo complemento é obrigatório")
     @Column(name = "COMPLEMENTO")
     private String complemento;
 
-    @NotNull(message = "O campo referencia é obrigatório")
     @Column(name = "REFERENCIA")
     private String referencia;
 

@@ -34,10 +34,8 @@ public class PessoaDTO implements Serializable {
     @NotBlank(message = "O campo numero é obrigatório")
     private String numero;
 
-    @NotBlank(message = "O campo complemento é obrigatório")
     private String complemento;
 
-    @NotBlank(message = "O campo referencia é obrigatório")
     private String referencia;
 
     @Valid
