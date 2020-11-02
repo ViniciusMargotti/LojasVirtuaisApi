@@ -24,5 +24,5 @@ mvn spring-boot:run
 A aplicação se encontra publicada na plataforma Heroku : https://loginseed.herokuapp.com/
 
 ## Swagger
-Para visualizar o Swagguer da aplicação é possível acessa-lo pelo link: https://loginseed.herokuapp.com/swagger-ui.html#/
+Para visualizar o Swagger da aplicação é possível acessa-lo pelo link: https://loginseed.herokuapp.com/swagger-ui.html#/
 
